@@ -229,6 +229,11 @@ void ofxAnimationAssetManager::setState(State s){
 		case UNINITED: break;
 
 		case CHECKING_ASSETS:
+			if (!bCheckAssetFiles) {
+				setState(COMPRESSING_ASSETS);
+				break;
+			}
+
 			ofLogNotice("ofxAnimationAssetManager") << "## Start CHECKING Assets #########################################################";
 			pendingCheck.clear();
 			checked.clear();
@@ -238,6 +243,10 @@ void ofxAnimationAssetManager::setState(State s){
 			break;
 			
 		case COMPRESSING_ASSETS:
+			if (!bCompressAssetFiles) {
+				setState(PRELOADING_ASSETS);
+				break;
+			}
 			ofLogNotice("ofxAnimationAssetManager") << "## Start COMPRESSING Assets ######################################################";
 			pendingCompression.clear();
 			compressed.clear();

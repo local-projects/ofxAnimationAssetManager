@@ -82,6 +82,8 @@ public:
 	ofxImageSequenceVideo & getAnimation(const string & ID); //direct access to animation objects
 	ofTexture & getTexture(const string & ID); //get the ofTexture of StaticImage or Animation indistinctively
 
+	void setCheckAssetFiles(bool b) { bCheckAssetFiles = b; }
+	void setCompressAssetFiles(bool b) { bCompressAssetFiles = b; }
 
 protected:
 
@@ -165,5 +167,7 @@ protected:
     
     bool playAssetsInReverse = false;
 
+	bool bCheckAssetFiles = true; 
+	bool bCompressAssetFiles = true; 
 };
 
