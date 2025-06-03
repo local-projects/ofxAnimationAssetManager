@@ -529,6 +529,7 @@ ofxAnimationAssetManager::CheckInfo ofxAnimationAssetManager::checkAsset(string 
 				if(!f.exists() || f.getSize() == 0){
 					needCompression++;
 				}
+				f.close();
 				c++;
 				progress->pct = c / float(allImages.size());
 				if(needsToStop) break;
